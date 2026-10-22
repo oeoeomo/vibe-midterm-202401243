@@ -89,8 +89,7 @@
 
 - **GitHub 저장소:** [oeoeomo/vibe-midterm-202401243](https://github.com/oeoeomo/vibe-midterm-202401243) (프로젝트 Git remote에 설정된 URL)
 - **GitHub Pages 배포 URL:** [https://oeoeomo.github.io/vibe-midterm-202401243/]
-- **현재 상태:** GitHub Pages 설정/배포는 확인되지 않았습니다. 최근 로컬 커밋의 푸시는 인증 오류로 완료되지 않았으므로 GitHub 원격에는 반영되지 않았을 수 있습니다.
-
+- **현재 상태:** 배포 완료
 ## 개발자 정보
 
 | 항목 | 정보 |
