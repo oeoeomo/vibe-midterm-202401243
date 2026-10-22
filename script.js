@@ -137,6 +137,7 @@ function renderMenu() {
 function renderCart() {
   const count = state.cart.reduce((total, item) => total + item.quantity, 0);
   $("#cart-count").textContent = count;
+  $("#cart-count-summary").textContent = count;
   $("#subtotal").textContent = formatPrice(cartTotal());
   $("#cart-total").textContent = formatPrice(cartTotal());
   $("#checkout-button").disabled = state.cart.length === 0 || checkoutInProgress;
@@ -148,7 +149,8 @@ function renderCart() {
     const menu = menuFor(item.menuId);
     const optionLabels = [item.shot && OPTIONS.shot.label, item.syrup && OPTIONS.syrup.label].filter(Boolean);
     return `<article class="cart-row">
-      <div><div class="cart-item-name">${menu.name}</div><div class="cart-item-options">${optionLabels.length ? optionLabels.join(" · ") : "기본"} · ${formatPrice(itemUnitPrice(item))}</div></div>
+      <div class="cart-thumb" style="--drink-color:${menu.color};--drink-top:${menu.top}" aria-hidden="true"><div class="drink-cup"></div></div>
+      <div class="cart-item-details"><div class="cart-item-name">${menu.name}</div><div class="cart-item-options">${optionLabels.length ? optionLabels.join(" · ") : "기본"} · ${formatPrice(itemUnitPrice(item))}</div></div>
       <div class="quantity-control">
         <button type="button" data-cart-change="-1" data-cart-index="${index}" aria-label="수량 감소">−</button>
         <input type="number" value="${item.quantity}" aria-label="장바구니 수량" readonly />
@@ -221,6 +223,7 @@ function changeView(view) {
   const isAdmin = view === "admin";
   $("#shop-view").hidden = isAdmin;
   $("#admin-view").hidden = !isAdmin;
+  $(".header-title").textContent = isAdmin ? "관리자" : "주문하기";
   document.querySelectorAll(".nav-link").forEach(button => {
     button.classList.toggle("active", button.dataset.viewLink === view && !button.hasAttribute("data-scroll-cart"));
   });

@@ -3,119 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f3eb" />
+    <meta name="theme-color" content="#ffffff" />
     <title>모로우 커피 | 오늘의 한 잔</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="모로우 커피 홈" data-view-link="shop">
-        <span class="brand-mark" aria-hidden="true">m</span>
-        <span class="brand-copy">
-          <strong>morrow</strong>
-          <small>COFFEE &amp; SLOW MOMENTS</small>
-        </span>
-      </a>
+      <button class="back-button" type="button" data-view-link="shop" aria-label="주문 화면으로 돌아가기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
+      </button>
+      <h1 class="header-title">주문하기</h1>
       <nav class="main-nav" aria-label="주요 메뉴">
-        <button class="nav-link active" type="button" data-view-link="shop">메뉴</button>
-        <button class="nav-link cart-nav" type="button" data-view-link="shop" data-scroll-cart>
+        <button class="nav-link cart-nav" type="button" data-view-link="shop" data-scroll-cart aria-label="장바구니로 이동">
           장바구니 <span id="cart-count" class="cart-count">0</span>
         </button>
-        <button class="nav-link admin-nav" type="button" data-view-link="admin">
-          <span class="admin-dot" aria-hidden="true"></span> 관리자
-        </button>
+        <button class="nav-link admin-nav" type="button" data-view-link="admin">관리자</button>
       </nav>
     </header>
 
     <main>
       <section id="shop-view" class="view">
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow"><span></span> YOUR DAILY PAUSE</p>
-            <h1>좋은 하루는<br /><em>좋은 커피</em>로부터.</h1>
-            <p class="hero-description">매일의 순간을 조금 더 부드럽게.<br />모로우의 커피를 만나보세요.</p>
-            <a class="hero-cta" href="#menu-section">메뉴 둘러보기 <span aria-hidden="true">↘</span></a>
-          </div>
-          <div class="hero-art" aria-hidden="true">
-            <div class="sun-shape"></div>
-            <div class="hero-bean bean-one"></div>
-            <div class="hero-bean bean-two"></div>
-            <div class="hero-cup">
-              <div class="hero-cup-top"><span></span></div>
-              <div class="hero-cup-body"><span class="cup-logo">m</span></div>
-              <div class="hero-cup-shadow"></div>
+        <div class="order-screen">
+          <section class="order-meta" aria-label="주문 기본 정보">
+            <div class="meta-row">
+              <h2>고객 정보</h2>
+              <p><strong>주문자 예시</strong><span>010-0000-0000</span></p>
             </div>
-            <div class="hero-steam steam-one"></div>
-            <div class="hero-steam steam-two"></div>
-            <div class="hero-caption">a little<br />moment for you</div>
-          </div>
-          <div class="hero-bottom"><span>EST. 2024</span><span>GOOD COFFEE, GOOD DAY.</span><span>SEOUL, KR</span></div>
-        </section>
+            <div class="meta-row">
+              <h2>주문 매장</h2>
+              <p><strong>모로우 커피 성수점 (예시)</strong><span>서울시 성동구 연무장길 (예시 주소)</span></p>
+            </div>
+          </section>
 
-        <section class="menu-section section-wrap" id="menu-section">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow"><span></span> THE MENU</p>
-              <h2>오늘의 커피</h2>
+          <section class="menu-section" id="menu-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker">MORROW COFFEE</p>
+                <h2>메뉴 선택</h2>
+              </div>
+              <p class="section-note">원하는 메뉴와 옵션을 선택해 주세요.</p>
             </div>
-            <p class="section-note">신선하게 내린 한 잔을<br />당신의 취향대로 즐겨보세요.</p>
-          </div>
-          <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
-        </section>
+            <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+          </section>
 
-        <section class="order-section section-wrap" id="cart-section">
-          <div class="section-heading order-heading">
-            <div>
-              <p class="eyebrow"><span></span> YOUR ORDER</p>
-              <h2>주문하기</h2>
+          <section class="order-section" id="cart-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker">ORDER SUMMARY</p>
+                <h2>주문 메뉴</h2>
+              </div>
+              <span class="cart-total-count"><span id="cart-count-summary">0</span>개</span>
             </div>
-            <span class="order-step">01 <i>/</i> 02</span>
-          </div>
-          <div class="order-layout">
             <div id="cart-items" class="cart-items" aria-live="polite"></div>
-            <aside class="summary-card">
-              <p class="summary-eyebrow">ORDER SUMMARY</p>
-              <div class="summary-line"><span>상품 금액</span><strong id="subtotal">0원</strong></div>
-              <div class="summary-line"><span>픽업 할인</span><strong class="discount">− 0원</strong></div>
-              <div class="summary-divider"></div>
-              <div class="summary-total"><span>총 결제 금액</span><strong id="cart-total">0원</strong></div>
-              <button id="checkout-button" class="checkout-button" type="button" disabled>
-                주문하기 <span aria-hidden="true">→</span>
-              </button>
-              <p class="pickup-note"><span aria-hidden="true">✦</span> 주문 후 매장에서 픽업해 주세요.</p>
-            </aside>
-          </div>
-        </section>
+            <div class="summary-card">
+              <div class="summary-line"><span>메뉴 금액</span><strong id="subtotal">0원</strong></div>
+              <div class="summary-total"><span>최종 결제 금액</span><strong id="cart-total">0원</strong></div>
+              <button id="checkout-button" class="checkout-button" type="button" disabled>주문하기</button>
+            </div>
+          </section>
+          <p class="pickup-note">주문 후 매장에서 픽업해 주세요.</p>
+        </div>
       </section>
 
       <section id="admin-view" class="view admin-view" hidden>
         <div class="admin-banner">
           <div class="admin-banner-inner">
-            <p class="eyebrow"><span></span> MORROW / BACK OFFICE</p>
+            <p class="section-kicker">MORROW COFFEE / BACK OFFICE</p>
             <h1>매장 대시보드</h1>
             <p>오늘의 주문과 재고를 한눈에 관리하세요.</p>
           </div>
-          <div class="admin-banner-stamp" aria-hidden="true">m<span>✳</span></div>
         </div>
-        <div class="admin-content section-wrap">
+        <div class="admin-content">
           <div class="stats-grid" id="stats-grid"></div>
           <section class="admin-panel">
             <div class="panel-heading">
-              <div><p class="eyebrow"><span></span> LIVE ORDERS</p><h2>주문 현황</h2></div>
+              <div><p class="section-kicker">LIVE ORDERS</p><h2>주문 현황</h2></div>
               <span id="order-list-count" class="panel-count"></span>
             </div>
             <div id="orders-list" class="orders-list" aria-live="polite"></div>
           </section>
           <section class="admin-panel inventory-panel">
             <div class="panel-heading">
-              <div><p class="eyebrow"><span></span> INVENTORY</p><h2>메뉴 재고 관리</h2></div>
+              <div><p class="section-kicker">INVENTORY</p><h2>메뉴 재고 관리</h2></div>
               <p class="inventory-hint">재고 수량을 변경하고 저장해 주세요.</p>
             </div>
             <div id="inventory-list" class="inventory-list"></div>
@@ -142,7 +112,7 @@
     <dialog id="success-dialog" class="success-dialog">
       <button class="dialog-close" type="button" aria-label="닫기">×</button>
       <div class="success-icon" aria-hidden="true">✓</div>
-      <p class="eyebrow"><span></span> ORDER COMPLETE</p>
+      <p class="section-kicker">ORDER COMPLETE</p>
       <h2>주문이 접수되었어요</h2>
       <p>정성껏 준비하고 있을게요.<br />매장에서 편하게 픽업해 주세요.</p>
       <div class="order-number-box"><span>주문 번호</span><strong id="completed-order-number"></strong></div>
