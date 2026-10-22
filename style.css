@@ -154,11 +154,17 @@ a { color: inherit; text-decoration: none; }
 .checkout-button:disabled { cursor: not-allowed; color: #a59a8e; background: #e6dfd6; }
 .pickup-note { margin: 13px 0 0; text-align: center; color: #9c9084; font-size: 9px; }
 .pickup-note span { margin-right: 3px; color: #bd9a73; }
-.site-footer { min-height: 150px; padding: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #eee7dc; text-align: center; }
+.site-footer { padding: 32px max(30px, calc((100vw - 1060px) / 2)); background: #eee7dc; border-top: 1px solid rgba(96,72,56,.12); }
+.footer-inner { max-width: 1060px; margin: auto; display: grid; grid-template-columns: minmax(180px,1fr) 2fr; align-items: center; gap: 24px 40px; }
+.footer-brand-block { text-align: left; }
 .footer-brand { font: italic 27px var(--serif); }
 .footer-brand span { color: #b88a66; }
-.site-footer p { margin: 4px 0 15px; color: #86796d; font-size: 10px; }
-.site-footer small { color: #a29689; font-size: 8px; letter-spacing: 1px; }
+.site-footer p { margin: 4px 0 0; color: #86796d; font-size: 10px; }
+.footer-profile { margin: 0; display: grid; grid-template-columns: minmax(0,1.5fr) minmax(90px,.8fr) minmax(90px,.8fr); gap: 12px; }
+.footer-profile > div { min-width: 0; padding-left: 14px; border-left: 1px solid #d9cdbf; }
+.footer-profile dt { margin-bottom: 5px; color: #968779; font-size: 9px; }
+.footer-profile dd { margin: 0; color: #57483c; font-size: 11px; font-weight: 600; overflow-wrap: anywhere; }
+.footer-copyright { grid-column: 1 / -1; padding-top: 13px; border-top: 1px solid rgba(96,72,56,.12); color: #a29689; font-size: 8px; letter-spacing: 1px; text-align: center; }
 
 .admin-view { min-height: calc(100vh - 82px); }
 .admin-banner { position: relative; overflow: hidden; background: #eee7dc; }
@@ -296,6 +302,13 @@ a { color: inherit; text-decoration: none; }
   .stock-edit input { width: 48px; }
   .stock-edit button { padding: 0 7px; }
   .inventory-name { font-size: 10px; }
+  .site-footer { padding: 25px 19px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 18px; }
+  .footer-brand-block { text-align: center; }
+  .footer-profile { grid-template-columns: minmax(0,1.5fr) minmax(72px,.8fr) minmax(72px,.8fr); gap: 8px; }
+  .footer-profile > div { padding-left: 9px; }
+  .footer-profile dd { font-size: 10px; }
+  .footer-copyright { line-height: 1.6; }
 }
 @media (max-width: 370px) {
   .main-nav { gap: 9px; }
